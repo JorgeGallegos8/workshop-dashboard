@@ -3,6 +3,7 @@ import http from 'http';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { initSocket } from './sockets/index.js';
+import readingsRouter from './routes/readings.js';
 
 dotenv.config();
 
@@ -11,6 +12,8 @@ const server = http.createServer(app);
 
 app.use(cors());
 app.use(express.json());
+
+app.use('/api/readings', readingsRouter);
 
 initSocket(server);
 
