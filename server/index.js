@@ -1,10 +1,11 @@
-import express from 'express';
+import express, { application } from 'express';
 import http from 'http';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { initSocket } from './sockets/index.js';
 import readingsRouter from './routes/readings.js';
 import weatherRouter from './routes/weather.js';
+import pricesRouter from './routes/prices.js';
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ app.use(express.json());
 
 app.use('/api/readings', readingsRouter);
 app.use('/api/weather', weatherRouter);
+app.use('/api/prices', pricesRouter);
 
 initSocket(server);
 
