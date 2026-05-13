@@ -9,10 +9,21 @@ export default function LiveChart({ data, lines }) {
         onContextMenu={(_, e) => e.preventDefault()}
       >
         {lines.map(line => (
-          <Line key={line.key} dataKey={line.key} stroke={line.color} dot={false} />
+          <Line 
+            key={line.key} 
+            dataKey={line.key} 
+            stroke={line.color}
+            strokeWidth={2} 
+            dot={false} 
+            isAnimationActive={false}
+          />
         ))}
-        <XAxis dataKey='name' />
-        <YAxis />
+        <XAxis 
+          dataKey='time' 
+          interval={10}
+          tick={{ fontSize: 10 }}
+        />
+        <YAxis tick={{ fontSize: 10 }} />
         <Tooltip contentStyle={{ backgroundColor: 'black', color: 'white' }} />
       </LineChart>
     </ResponsiveContainer>
