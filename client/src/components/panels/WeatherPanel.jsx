@@ -37,7 +37,10 @@ export default function WeatherPanel() {
 
   if (!weather) {
     return (
-      <article className="weather-panel weather-panel--loading" aria-busy="true">
+      <article
+        className="weather-panel weather-panel--loading"
+        aria-busy="true"
+      >
         Loading weather…
       </article>
     );
@@ -52,7 +55,10 @@ export default function WeatherPanel() {
   const wind = weather.wind?.speed;
 
   return (
-    <article className="weather-panel" aria-label={`Weather in ${weather.name}`}>
+    <article
+      className="weather-panel"
+      aria-label={`Weather in ${weather.name}`}
+    >
       <h2 className="weather-panel__city">{weather.name}</h2>
       <p className="weather-panel__condition">
         {emoji} {label}
@@ -60,7 +66,9 @@ export default function WeatherPanel() {
 
       <p className="weather-panel__temps">
         {formatTemp(temp)}{' '}
-        <span className="weather-panel__feels">feels like {formatTemp(feelsLike)}</span>
+        <span className="weather-panel__feels">
+          feels like {formatTemp(feelsLike)}
+        </span>
       </p>
 
       <div className="weather-panel__details">
