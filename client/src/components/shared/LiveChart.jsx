@@ -25,9 +25,24 @@ export default function LiveChart({ data, lines }) {
             isAnimationActive={false}
           />
         ))}
-        <XAxis dataKey="time" interval={10} tick={{ fontSize: 10 }} />
-        <YAxis tick={{ fontSize: 10 }} />
-        <Tooltip contentStyle={{ backgroundColor: 'black', color: 'white' }} />
+        <XAxis
+          dataKey="time"
+          interval={10}
+          tick={{ fontSize: 10, fill: 'var(--color-text-muted)' }}
+          stroke="var(--color-border)"
+        />
+        <YAxis
+          tick={{ fontSize: 10, fill: 'var(--color-text-muted)' }}
+          stroke="var(--color-border)"
+        />
+        <Tooltip
+          contentStyle={{
+            backgroundColor: 'var(--color-surface)',
+            color: 'var(--color-text)',
+            border: '1px solid var(--color-border)',
+            borderRadius: '8px',
+          }}
+        />
       </LineChart>
     </ResponsiveContainer>
   );

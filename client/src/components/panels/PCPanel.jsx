@@ -45,8 +45,8 @@ export default function PCPanel() {
         <LiveChart
           data={chartData}
           lines={[
-            { key: 'cpu_usage', color: '#3b82f6' },
-            { key: 'ram_usage', color: '#10b981' },
+            { key: 'cpu_usage', color: 'var(--color-accent)' },
+            { key: 'ram_usage', color: 'var(--color-success)' },
           ]}
         />
       </div>

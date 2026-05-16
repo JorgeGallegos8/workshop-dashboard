@@ -1,11 +1,4 @@
 .metric-card {
-  --metric-surface: #14161c;
-  --metric-border: rgba(255, 255, 255, 0.08);
-  --metric-glow: rgba(99, 140, 255, 0.12);
-  --metric-label: rgba(255, 255, 255, 0.55);
-  --metric-value: #f4f5f7;
-  --metric-unit: rgba(255, 255, 255, 0.45);
-
   position: relative;
   display: flex;
   flex-direction: column;
@@ -14,12 +7,12 @@
   padding: 1.125rem 1.25rem 1.25rem;
   border-radius: 12px;
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.04) 0%, transparent 45%),
-    var(--metric-surface);
-  border: 1px solid var(--metric-border);
+    linear-gradient(145deg, var(--color-gradient-highlight) 0%, transparent 45%),
+    var(--color-surface);
+  border: 1px solid var(--color-border);
   box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.35) inset,
-    0 12px 28px rgba(0, 0, 0, 0.35);
+    0 0 0 1px var(--color-shadow-inset) inset,
+    0 12px 28px var(--color-shadow);
   overflow: hidden;
 }
 
@@ -31,7 +24,7 @@
   pointer-events: none;
   background: radial-gradient(
     120% 80% at 100% 0%,
-    var(--metric-glow),
+    var(--color-accent-glow),
     transparent 55%
   );
   opacity: 0.9;
@@ -44,7 +37,7 @@
   font-weight: 600;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: var(--metric-label);
+  color: var(--color-text-muted);
 }
 
 .metric-card__value-row {
@@ -62,13 +55,13 @@
   font-size: 1.75rem;
   font-weight: 700;
   letter-spacing: -0.03em;
-  color: var(--metric-value);
+  color: var(--color-text);
 }
 
 .metric-card__unit {
   font-size: 1.05rem;
   font-weight: 600;
-  color: var(--metric-unit);
+  color: var(--color-text-faint);
 }
 
 .metric-card__unit--suffix {

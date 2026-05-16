@@ -3,8 +3,11 @@ import Header from './components/shared/Header';
 import PCPanel from './components/panels/PCPanel';
 import WeatherPanel from './components/panels/WeatherPanel';
 import PricesPanel from './components/panels/PricesPanel';
+import useTheme from './hooks/useTheme';
 
 function App() {
+  const { toggleTheme, isDark } = useTheme();
+
   return (
     <div className="dashboard">
       <Header />
@@ -12,9 +15,17 @@ function App() {
         <WeatherPanel />
         <PricesPanel />
         <div className="dashboard__full-width">
-        <PCPanel />
+          <PCPanel />
         </div>
       </div>
+      <button
+        type="button"
+        className="theme-toggle"
+        onClick={toggleTheme}
+        aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+      >
+        {isDark ? '☀️' : '🌙'}
+      </button>
     </div>
   );
 }
