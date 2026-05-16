@@ -5,7 +5,7 @@ import LiveChart from '../shared/LiveChart';
 
 export default function PCPanel() {
   const [chartData, setChartData] = useState([]);
-  const readings = useLiveReadings();
+  const { readings } = useLiveReadings();
 
   useEffect(() => {
     if (readings.cpu_usage && readings.ram_usage) {
