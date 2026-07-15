@@ -1,3 +1,4 @@
+import "./PCPanel.css"
 import { useState, useEffect } from 'react';
 import useLiveReadings from '../../hooks/useLiveReadings';
 import MetricCard from '../shared/MetricCard';
@@ -20,6 +21,14 @@ export default function PCPanel() {
       });
     }
   }, [readings]);
+
+  if (!readings.cpu_usage || !readings.ram_usage) {
+    return (
+      <article className="pc-panel pc-panel--loading" aria-busy="true">
+        Connecting to PC agent...
+      </article>
+    );
+  }
 
   return (
     <div>
