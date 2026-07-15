@@ -1,0 +1,13 @@
+.bambu-panel__progress {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--color-border);
+  overflow: hidden;
+}
+
+.bambu-panel__progress-bar {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--color-accent);
+  transition: width 0.5s ease;
+}
