@@ -7,7 +7,7 @@ export default function usePrices() {
     async function fetchPrices() {
       try {
         const response = await fetch(
-          'http://localhost:3000/api/prices/bitcoin'
+          `${import.meta.env.VITE_API_URL}/api/prices/bitcoin`
         );
         const data = await response.json();
         setPrices(data);

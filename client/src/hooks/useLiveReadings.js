@@ -10,7 +10,7 @@ export default function useLiveReadings() {
   const [connected, setConnected] = useState(false);
 
   useEffect(() => {
-    const socket = io('http://localhost:3000');
+    const socket = io(import.meta.env.VITE_API_URL);
 
     socket.on('connect', () => setConnected(true));
     socket.on('disconnect', () => setConnected(false));

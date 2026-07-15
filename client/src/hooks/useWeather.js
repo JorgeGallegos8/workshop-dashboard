@@ -6,7 +6,9 @@ export default function useWeather() {
   useEffect(() => {
     async function fetchWeather() {
       try {
-        const response = await fetch('http://localhost:3000/api/weather');
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/weather`
+        );
         const data = await response.json();
         setWeather(data);
       } catch (err) {
