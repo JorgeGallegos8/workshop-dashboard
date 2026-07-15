@@ -11,3 +11,16 @@
   background: var(--color-accent);
   transition: width 0.5s ease;
 }
+
+.bambu-panel--loading,
+.bambu-panel--idle {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+.bambu-panel__status {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}

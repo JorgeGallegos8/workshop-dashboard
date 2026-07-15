@@ -1,12 +1,31 @@
+import './BambuPanel.css';
 import useLiveReadings from "../../hooks/useLiveReadings";
 import MetricCard from "../shared/MetricCard";
-import './BambuPanel.css';
 
 export default function BambuPanel() {
     const { readings } = useLiveReadings();
     
+    if (!readings.nozzle_temp) {
+        return (
+            <article className="bambu-panel bambu-panel--loading" aria-busy="true">
+                Connecting to printer...
+            </article>
+        );
+    }
+
+    const isIdle = !readings.print_percentage?.value || readings.print_percentage?.value === 0;
+
+    if (isIdle) {
+        return (
+            <article className="bambu-panel bambu-panel--idle">
+                <h2 className="bambu-panel__title">Bambu Printer</h2>
+                <p className="bambu-panel__status">Idle</p>
+            </article>
+        );
+    }
+
     return (
-        <div>
+        <article className="bambu-panel">
             <MetricCard 
                 metric="nozzle_temp"
                 value={readings.nozzle_temp?.value}
@@ -28,6 +47,6 @@ export default function BambuPanel() {
                     style={{ width: `${readings.print_percentage?.value || 0}%`}}
                 />
             </div>
-        </div>
+        </article>
     )
 }
