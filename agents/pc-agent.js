@@ -1,4 +1,9 @@
 import si from 'systeminformation';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+const backendUrl = process.env.BACKEND_URL;
 
 async function sendStats() {
   try {
@@ -13,7 +18,7 @@ async function sendStats() {
     const availableStorage = diskUsage[0].available / 1_073_741_824; // convert bytes to gigabytes
 
     await Promise.all([
-      fetch('http://localhost:3000/api/readings', {
+      fetch(`${backendUrl}/api/readings`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -24,7 +29,7 @@ async function sendStats() {
         }),
       }),
 
-      fetch('http://localhost:3000/api/readings', {
+      fetch(`${backendUrl}/api/readings`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -35,7 +40,7 @@ async function sendStats() {
         }),
       }),
 
-      fetch('http://localhost:3000/api/readings', {
+      fetch(`${backendUrl}/api/readings`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
