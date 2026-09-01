@@ -6,11 +6,17 @@ A real-time personal monitoring dashboard that aggregates live PC hardware metri
 
 ---
 
+## Why
+
+This started as an excuse to put four things on one screen instead of checking Task Manager, a weather app, an exchange tab, and the Bambu app separately. It turned into a more interesting question: could four sources with nothing in common — a local Node agent, a Python MQTT client, and two public REST APIs — all land in the same pipeline?
+
+---
+
 ## Features
 
 - **Live PC Stats** — CPU usage, RAM usage, and available storage updated every 3 seconds via WebSockets
 - **Weather** — Current conditions, temperature, humidity, and wind speed for your location, refreshed every 5 minutes
-- **Bitcoin Price** — Live spot price from Coinbase, refreshed every 2 minutes
+- **Bitcoin Price** — Live spot price from Coinbase; backend caches for 1 minute, frontend polls every 2 minutes
 - **Bambu Printer Telemetry** — Real-time nozzle temp, bed temp, and print progress from your Bambu printer over local MQTT
 - **Dark / Light Mode** — Respects your OS preference with a manual toggle, persisted across sessions
 - **Connection Status** — Live indicator showing whether the WebSocket connection is active
@@ -100,7 +106,7 @@ A real-time personal monitoring dashboard that aggregates live PC hardware metri
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/workshop-dashboard.git
+git clone https://github.com/JorgeGallegos8/workshop-dashboard.git
 cd workshop-dashboard
 ```
 
