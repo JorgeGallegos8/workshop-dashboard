@@ -150,11 +150,27 @@ BAMBU_ACCESS_CODE=your_access_code
 
 ### 6. Install agent dependencies
 
+**macOS / Linux / WSL**
+
 ```bash
 cd agents
 npm install
-pip install bambulabs-api python-dotenv requests
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 ```
+
+**Windows (PowerShell)**
+
+```powershell
+cd agents
+npm install
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+```
+
+> If PowerShell blocks the activation script, run `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` once, then try again.
 
 ### 7. Configure the frontend
 
@@ -187,7 +203,13 @@ cd client && npm run dev
 cd agents && node pc-agent.js
 
 # Terminal 4 — Bambu Printer Agent (optional, requires printer on local network)
-cd agents && python bambu-agent.py
+cd agents && source .venv/bin/activate && python bambu-agent.py
+```
+
+On Windows (PowerShell), start the Bambu agent with:
+
+```powershell
+cd agents; .venv\Scripts\Activate.ps1; python bambu-agent.py
 ```
 
 Open `http://localhost:5173` in your browser.
