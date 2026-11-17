@@ -264,3 +264,9 @@ GET  /api/readings/latest       ← Most recent reading per metric
 GET  /api/weather               ← Current weather (cached 5 min)
 GET  /api/prices/bitcoin        ← Bitcoin spot price (cached 1 min)
 ```
+
+---
+
+## License
+
+[MIT](LICENSE) © 2026 Jorgeluis Gallegos
