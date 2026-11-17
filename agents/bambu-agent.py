@@ -20,8 +20,8 @@ time.sleep(5) # Time to connect
 def send_stats():
     try:
         readings = [
-            {'device_id': 'bambu', 'metric': 'nozzle_temp', 'value': printer.get_nozzle_temperature(), 'unit': '°F'},
-            {'device_id': 'bambu', 'metric': 'bed_temp', 'value': printer.get_bed_temperature(), 'unit': '°F'},
+            {'device_id': 'bambu', 'metric': 'nozzle_temp', 'value': printer.get_nozzle_temperature(), 'unit': '°C'},
+            {'device_id': 'bambu', 'metric': 'bed_temp', 'value': printer.get_bed_temperature(), 'unit': '°C'},
             {'device_id': 'bambu', 'metric': 'print_percentage', 'value': printer.get_percentage() or 0, 'unit': '%'},
         ]
 

@@ -29,12 +29,12 @@ export default function BambuPanel() {
             <MetricCard 
                 metric="nozzle_temp"
                 value={readings.nozzle_temp?.value}
-                unit="°F"
+                unit="°C"
             />
             <MetricCard 
                 metric="bed_temp"
                 value={readings.bed_temp?.value}
-                unit="°F"
+                unit="°C"
             />
             <MetricCard 
                 metric="print_percentage"
