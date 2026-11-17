@@ -265,6 +265,15 @@ GET  /api/weather               ← Current weather (cached 5 min)
 GET  /api/prices/bitcoin        ← Bitcoin spot price (cached 1 min)
 ```
 
+## Security
+
+This project is built for a trusted home network and has no authentication:
+
+- `POST /api/readings` accepts data from any client that can reach the server
+- CORS is open on the REST API
+
+Don't expose the backend (port 3000) or the frontend to the internet. If you need remote access, put it behind a VPN (Tailscale, WireGuard) or a reverse proxy that requires a login.
+
 ---
 
 ## License
