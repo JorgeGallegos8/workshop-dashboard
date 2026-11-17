@@ -2,11 +2,15 @@ import './MetricCard.css';
 
 const PREFIX_UNITS = new Set(['$', '€', '£', '¥']);
 
-function formatDisplayValue(value) {
+function formatDisplayValue(value, decimals) {
   if (value == null || value === '') return '—';
   const raw = String(value).replace(/,/g, '').trim();
   if (raw === '' || Number.isNaN(Number(raw))) return String(value);
-  return Number(raw).toLocaleString();
+  if (decimals == null) return Number(raw).toLocaleString();
+  return Number(raw).toLocaleString(undefined, {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals,
+  });
 }
 
 /** Turns keys like `cpu_usage` into readable label text. */
@@ -15,8 +19,8 @@ function formatMetricLabel(name) {
   return String(name).replace(/_/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
-export default function MetricCard({ metric, value, unit = '' }) {
-  const display = formatDisplayValue(value);
+export default function MetricCard({ metric, value, unit = '', decimals }) {
+  const display = formatDisplayValue(value, decimals);
   const metricLabel = formatMetricLabel(metric);
   const u = String(unit ?? '').trim();
   const usePrefix = u && PREFIX_UNITS.has(u);

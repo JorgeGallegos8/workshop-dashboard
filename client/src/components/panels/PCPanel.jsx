@@ -36,18 +36,21 @@ export default function PCPanel() {
         metric="cpu_usage"
         value={readings.cpu_usage?.value}
         unit="%"
+        decimals={2}
       />
 
       <MetricCard
         metric="ram_usage"
         value={readings.ram_usage?.value}
         unit="%"
+        decimals={2}
       />
 
       <MetricCard
         metric="available_storage"
         value={readings.available_storage?.value}
         unit="GB"
+        decimals={2}
       />
 
       <div style={{ width: '500px', height: '300px' }}>
