@@ -122,15 +122,13 @@ psql -U postgres -d "workshop-dashboard" -f server/db/schema.sql
 
 ### 3. Configure the backend
 
-Create `server/.env`:
+From the repo root, copy the example file:
+
+```bash
+cp server/.env.example server/.env
 ```
-PORT=3000
-DATABASE_URL=postgresql://postgres:yourpassword@localhost:5432/workshop-dashboard
-OPENWEATHER_API_KEY=your_key_here
-LATITUDE=your_latitude
-LONGITUDE=your_longitude
-CLIENT_ORIGIN=http://localhost:5173
-```
+
+Then fill in your database password, OpenWeatherMap API key, and coordinates. See [Environment Variables](#environment-variables) for what each value means.
 
 ### 4. Install backend dependencies
 
@@ -141,13 +139,13 @@ npm install
 
 ### 5. Configure the agents
 
-Create `agents/.env`:
+From the repo root, copy the example file:
+
+```bash
+cp agents/.env.example agents/.env
 ```
-BACKEND_URL=http://localhost:3000
-BAMBU_IP=192.168.x.x
-BAMBU_SERIAL=your_serial
-BAMBU_ACCESS_CODE=your_access_code
-```
+
+Then fill in your printer's IP address, serial number, and access code. You can skip these if you aren't running the Bambu agent.
 
 ### 6. Install agent dependencies
 
@@ -175,10 +173,13 @@ pip install -r requirements.txt
 
 ### 7. Configure the frontend
 
-Create `client/.env`:
+From the repo root, copy the example file:
+
+```bash
+cp client/.env.example client/.env
 ```
-VITE_API_URL=http://localhost:3000
-```
+
+The default works as-is when the backend runs locally on port 3000.
 
 ### 8. Install frontend dependencies
 
