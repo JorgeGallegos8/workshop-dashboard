@@ -129,6 +129,7 @@ DATABASE_URL=postgresql://postgres:yourpassword@localhost:5432/workshop-dashboar
 OPENWEATHER_API_KEY=your_key_here
 LATITUDE=your_latitude
 LONGITUDE=your_longitude
+CLIENT_ORIGIN=http://localhost:5173
 ```
 
 ### 4. Install backend dependencies
@@ -227,6 +228,7 @@ Open `http://localhost:5173` in your browser.
 | `OPENWEATHER_API_KEY` | API key from openweathermap.org |
 | `LATITUDE` | Your latitude for weather data |
 | `LONGITUDE` | Your longitude for weather data |
+| `CLIENT_ORIGIN` | Frontend URL(s) allowed to open a Socket.io connection, comma-separated (default `http://localhost:5173`) |
 
 ### agents/.env
 

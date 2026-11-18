@@ -3,9 +3,16 @@ import { Server } from 'socket.io';
 let io;
 
 export function initSocket(server) {
+  // Comma-separated list of frontend URLs allowed to connect, e.g.
+  // "http://localhost:5173,http://192.168.1.50:5173"
+  const origins = (process.env.CLIENT_ORIGIN || 'http://localhost:5173')
+    .split(',')
+    .map((origin) => origin.trim())
+    .filter(Boolean);
+
   io = new Server(server, {
     cors: {
-      origin: 'http://localhost:5173',
+      origin: origins,
       methods: ['GET', 'POST'],
     },
   });
