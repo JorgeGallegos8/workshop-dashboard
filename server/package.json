@@ -10,7 +10,7 @@
     "start": "node index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jorgeluis Gallegos",
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.6",
